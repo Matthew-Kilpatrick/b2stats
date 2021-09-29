@@ -13,6 +13,7 @@ class B2Stats:
 
     # Dictionary for mapping size suffixes to bytes
     byte_suffix = {
+        "bytes": 1,
         "kb": 1024,
         "mb": 1024 ** 2,
         "gb": 1024 ** 3,
