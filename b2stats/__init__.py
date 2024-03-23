@@ -156,7 +156,7 @@ class B2Stats:
 
             # Substring to remove brackets
             # Also process to convert suffix to bytes if included (for storage / bw usage)
-            usage_value = cap.select(".b2-caps-left .text_65grey")[1].text.strip()[1:-1].replace(",", "")  # First text_65grey is heading
+            usage_value = cap.select(".b2-caps-left .text_65grey")[-1].text.strip()[1:-1].replace(",", "")  # First text_65grey is heading
             usage_parts = usage_value.split(" ", 1)
             if len(usage_parts) == 1:
                 # Is API request count
@@ -164,8 +164,9 @@ class B2Stats:
             else:
                 # Is value with unit
                 size, unit = usage_parts[0], usage_parts[1]
-                size = float(size)
-                unit = unit.lower()
+                size = float(size.strip())
+                unit = unit.lower().strip()
+                print('unit', unit, size)
                 usage_value = int(size * self.byte_suffix[unit])
 
             cap_value = cap.select_one(".b2-caps-right .text_65grey").text.strip()[1:-1].replace(",", "")
@@ -176,8 +177,8 @@ class B2Stats:
             else:
                 # Is value with unit
                 size, unit = cap_parts[0], cap_parts[1]
-                size = float(size)
-                unit = unit.lower()
+                size = float(size.strip())
+                unit = unit.lower().strip()
                 cap_value = int(size * self.byte_suffix[unit])
 
             # Determine if SMS/email alert checkboxes are selected (alerts enabled)
