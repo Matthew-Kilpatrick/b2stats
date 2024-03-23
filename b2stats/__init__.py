@@ -166,7 +166,6 @@ class B2Stats:
                 size, unit = usage_parts[0], usage_parts[1]
                 size = float(size.strip())
                 unit = unit.lower().strip()
-                print('unit', unit, size)
                 usage_value = int(size * self.byte_suffix[unit])
 
             cap_value = cap.select_one(".b2-caps-right .text_65grey").text.strip()[1:-1].replace(",", "")

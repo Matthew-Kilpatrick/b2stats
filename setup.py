@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='b2stats',
-    version='0.1.0',
+    version='0.1.3',
     description='Scrape Backblaze web interface for B2 bucket & caps statistics',
     url='https://github.com/matthew-kilpatrick/b2stats',
     author='Matthew Kilpatrick',
